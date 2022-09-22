@@ -1,0 +1,12 @@
+{
+  "clientes": [
+    {
+      "nombre": "MOISES DANIEL",
+      "empresa": "la 26",
+      "email": "daniel_mora0407@outlook.com",
+      "telefono": "3203188839",
+      "notas": "asd",
+      "id": 6
+    }
+  ]
+}
