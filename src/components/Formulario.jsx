@@ -28,7 +28,7 @@ const Formulario = ({cliente,cargando}) => {
         try {
             let respuesta
             if(cliente.id) {
-                const url = `http://localhost:4000/clientes/${cliente.id}`
+                const url = `${import.meta.env.VITE_API_URL}/${cliente.id}`
 
                 respuesta = await fetch(url, {
                 method: 'PUT',
@@ -38,7 +38,7 @@ const Formulario = ({cliente,cargando}) => {
                     }
                 })
             }else {
-                const url = 'http://localhost:4000/clientes'
+                const url = import.meta.env.VITE_API_URL
 
                 respuesta = await fetch(url, {
                 method: 'POST',
@@ -59,7 +59,7 @@ const Formulario = ({cliente,cargando}) => {
     }
   return (
 
-    cargando ? <Spinner/> : /*Object.keys(cliente).length === 0 ? <p> Id de cliente inexistente </p> :*/(
+    cargando ? <Spinner/> : (
         <div className="bg-gray-200 mt-10 px-5 py-10 rounded-md shdow-md md:3/4 mx-auto" >
             <h1 className="text-gray-600 font-bold text-xl uppercase text-center" > {cliente.nombre ? 'Editar' : 'Agregar'}  Cliente</h1>
             <Formik

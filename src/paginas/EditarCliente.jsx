@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import Formulario from "../components/Formulario"
 
 const EditarCliente = () => {
+
   const {id} = useParams()
 
     const [cliente, setCliente] = useState({})
@@ -13,7 +14,7 @@ const EditarCliente = () => {
         setCargando(!cargando)
         const obtenerClienteAPI = async () => {
             try {
-                const url = `http://localhost:4000/clientes/${id}`
+                const url = `${import.meta.env.VITE_API_URL}/${id}`
                 const respuesta = await fetch(url)
                 const resultado = await respuesta.json()
                 setCliente(resultado)
